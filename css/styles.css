@@ -5,22 +5,73 @@ body {
     padding: 0;
     margin: 0;
     background-color: #282828;
-    color: white;
 }
 
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/*Header */
+
+header {
+    color: white;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #E46A6b 3px solid;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header li {
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header nav {
+    float: right;
+    margin-top: -70px;
+}
+
+header .highlight,
+.current a {
+    color: #E46A6b;
+    font-weight: bold;
+}
+
+/* Divison Menu */
+
 .split {
-    height: 100%;
     width: 50%;
+    height: 100%;
     position: fixed;
-    z-index: 1;
+    color: white;
+    text-decoration: none;
 }
 
 .left {
     left: 0;
-    background-color: #240090;
+    background-color: #91c7a9;
 }
 
 .right {
     right: 0;
-    background-color: #190061;
+}
+
+.centered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.centered img {
+    width: 400px;
 }
