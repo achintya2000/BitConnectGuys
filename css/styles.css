@@ -75,3 +75,13 @@ header .highlight,
 .centered img {
     width: 400px;
 }
+
+/* About Page */
+
+#MainAbout {
+    color: white;
+    background-color: #E46A6b;
+    margin-left: 20%;
+    margin-top: 5%;
+    margin-right: 20%;
+}
