@@ -1,0 +1,19 @@
+{
+  "name": "connectwise",
+  "version": "1.0.0",
+  "description": "\"tutor tinder\"",
+  "main": "like_button.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/achintya2000/BitConnectGuys.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/achintya2000/BitConnectGuys/issues"
+  },
+  "homepage": "https://github.com/achintya2000/BitConnectGuys#readme"
+}
