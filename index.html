@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tutor Tinder | About</title>
+    <meta name="description" content="Matching tutors and students at Duke's EGR 103">
+    <meta name="keywords" content="EGR 103 Tutor, Tutor Tinder, Duke Tutor Tinder, Duke EGR 103">
+    <title>Tutor Tinder | Welcome!</title>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 
@@ -19,10 +21,10 @@
             </div>
             <nav>
                 <ul>
-                    <li>
+                    <li class="current">
                         <a href="index.html">Home</a>
                     </li>
-                    <li class="current">
+                    <li>
                         <a href="about.html">About</a>
                     </li>
                 </ul>
@@ -30,41 +32,28 @@
         </div>
     </header>
 
-    <section id="MainAbout">
-        <div class="container">
-            <h1>
-                What is Tutor Tinder?
-            </h1>
-            <p style="font-size: 17px">
-                Tutor Tinder is a dynamic matching system that allows students and TA's in Duke's EGR 103 class to
-                connect.
-            </p>
-            <br>
-            <h1>
-                Why Use Tutor Tinder?
-            </h1>
-            <p style="font-size: 17px">
-                I don't know
-            </p>
-            <br>
-            <h1>
-                Who Created Tutor Tinder?
-            </h1>
-            <p style="font-size: 17px">
-                Duke Univeristy EGR 101 Section 6 Group 9
-            </p>
-        </div>
+    <section id="division">
+        <a href="studentRequestTA.html">
+            <div class="split left">
+                <div class="centered">
+                    <img src="./img/study.png">
+                    <h1>
+                        Students Click Here To Get Started!
+                    </h1>
+                </div>
+            </div>
+        </a>
+        <a href="TAlogin.html">
+            <div class="split right">
+                <div class="centered">
+                    <img src="./img/teacher.png">
+                    <h1>
+                        Teachers Click Here To Get Started!
+                    </h1>
+                </div>
+            </div>
+        </a>
     </section>
-
-    <div id="like_button_container"></div>
-
-    <!-- Load React. -->
-    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-
-    <!-- Load our React component. -->
-    <script src="like_button.js"></script>
 
 </body>
 
