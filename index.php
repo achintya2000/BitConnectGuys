@@ -1,1 +1,1 @@
-<?php include_once("intex.html"); ?>
+<?php include_once("index.html"); ?>
