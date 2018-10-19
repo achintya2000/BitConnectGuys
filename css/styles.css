@@ -58,11 +58,19 @@ header .highlight,
 
 .left {
     left: 0;
+    
+}
+
+.left:hover {
     background-color: #91c7a9;
 }
 
 .right {
     right: 0;
+}
+
+.right:hover{
+    background-color: #91c7a9;
 }
 
 .centered {
@@ -156,3 +164,20 @@ header .highlight,
     font-size: 130%;
 }
 
+/* Students Request Tutor */
+
+.request-tutor {
+    font-family: "Roboto";
+    width: 500px;
+    margin: auto;
+    background: #E46A6b;
+    margin-top: 10%;
+    
+}
+
+/* Students Return Table */
+
+#returntable {
+    color: #FFFFFF;
+    margin: 10% 10%;
+}
