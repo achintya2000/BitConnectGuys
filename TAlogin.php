@@ -40,9 +40,9 @@
                 <input type="text" placeholder="username" 
                 name="uid"/>
                 <input type="password" placeholder="password" name="pwd"/>
-                <input type="text" placeholder="repeat password" name="pwd-repeat"/>
+                <input type="password" placeholder="repeat password" name="pwd-repeat"/>
                 <input type="text" placeholder="email address" name="mail" />
-                <input type="number" placeholder="lab section"/>
+                <input type="number" placeholder="lab section" name="section"/>
                 <button type="submit" name="signup-submit">SIGN UP </button>
                 <p id="message">Have an account? <a href="javascript:toggle()"> Sign In Here </a></p>
             </form>
