@@ -8,12 +8,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student | TA Returns</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <title>TA | Edit Profile</title>
 </head>
 
 <body>
-    <header>
+<header>
         <div class="container">
             <div>
                 <h1>
@@ -33,23 +33,30 @@
         </div>
     </header>
 
-    <div id="returntable">
-        <table style="width:400px">
-            <tr>
-                <th>FIRST NAME</th>
-                <th>DAYS</th>
-                <th>TIME</th>
-                <th>SCHEDULE</th>
-            </tr>
-            <tr>
-                <td>Michael Dodd</td>
-                <td>Ex</td>
-                <td>Ex</td>
-                <td><a href="studentSchedule.php">Ex</a></td>
-            </tr>
-        </table>
-    </div>
+    <div class="request-tutor">
+        <a href = "TAhome.php">Back</a>
+        <form action="./studentRequestReturn.php">
+            Name: <br>
+            <input type="text" name="firstlast"><br>
+            Email: <br>
+            <input type="email" name="semail"><br>
+            Lab Section <br>
+            <select name="section">
+                <option value="" disabled selected hidden> LS </option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+            </select> <br>
+            <br>
+            <button name="submitrequest">
+                Submit
+            </button>
+        </form>
 
+    </div>
 
 </body>
 

@@ -8,12 +8,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student | TA Returns</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <title>Student Schedule</title>
 </head>
 
 <body>
-    <header>
+<header>
         <div class="container">
             <div>
                 <h1>
@@ -33,23 +33,9 @@
         </div>
     </header>
 
-    <div id="returntable">
-        <table style="width:400px">
-            <tr>
-                <th>FIRST NAME</th>
-                <th>DAYS</th>
-                <th>TIME</th>
-                <th>SCHEDULE</th>
-            </tr>
-            <tr>
-                <td>Michael Dodd</td>
-                <td>Ex</td>
-                <td>Ex</td>
-                <td><a href="studentSchedule.php">Ex</a></td>
-            </tr>
-        </table>
+    <div class="request-tutor">
+        Your appointment is schedule with NAME on _____ at ____
     </div>
-
 
 </body>
 
