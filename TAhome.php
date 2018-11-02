@@ -34,33 +34,42 @@
     </header>
 
     <section id="UserProfile">
-        <h1 style="padding-top:30px">
-            Teaching Assitant Name
-        </h1>
-        <p style="padding-left: 40px">
-            Micheal Dodd
-        </p>
-        <h2 style="padding-top:30px">
-            Sections TA'ing
-        </h2>
-        <p style="padding-left: 40px">
-            Section 2 and Section 6
-        </p>
-        <h2 style="padding-top:30px">
-            Times Available
-        </h2>
-        <p style="padding-left: 40px">
-            Tuesday: 9am to 1pm
-            Saturday: 11am to 5pm
-            Sunday: 5pm to 8pm
-        </p>
-        <h2 style="padding-top: 30px">
-            Email
-        </h2>
-        <p style="padding-left: 40px">
-            michael.dodd@duke.edu
-        </p>
+        <?php
+            if (isset($_SESSION['userID'])) {
+                echo "<h1 style='padding-top:30px'>
+                        You are logged in.
+                        </h1>";
+                echo "<h1 style='padding-top:5px'>
+                        Teaching Assitant Username         
+                        </h1>";
+                echo "<p style='padding-left: 40px'>"
+                        .$_SESSION["userUid"]."
+                    </p>";
 
+                echo "<h2 style='padding-top:30px'>
+                        Sections TA'ing
+                    </h2>";
+                echo "<p style='padding-left: 40px'>
+                        Section " .$_SESSION["lSection"]."
+                    </p>";
+                echo "<h2 style='padding-top:30px'>
+                        Times Available
+                    </h2>
+                    <p style='padding-left: 40px'>
+                        Not Done Yet!!!!!
+                    </p>";
+                echo "<h2 style='padding-top: 30px'>
+                        Email
+                    </h2>
+                    <p style='padding-left: 40px'>"
+                        .$_SESSION["userEmail"]."
+                    </p>";
+            } else {
+                echo '<h1 style="padding-top:30px">
+                        You are not logged in.
+                        </h1>';
+            }
+        ?>
     </section>
 
 </body>
