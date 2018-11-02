@@ -6,6 +6,12 @@ if (isset($_POST['signup-submit'])) {
     $password = $_POST['pwd'];
     $passwordRepeat = $_POST['pwd-repeat'];
     $labsection = $_POST['section'];
+    $time = strtotime($_POST['dateFrom']);
+
+    if (empty($time)) {
+        header("Location: ../../../TAlogin.php?error=emptydateTime=");
+        exit();
+    }
 
     if (empty($labsection)) {
         header("Location: ../../../TAlogin.php?error=emptylabsection=");
