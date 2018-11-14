@@ -33,69 +33,77 @@
         </div>
     </header>
 
-    <div class="request-tutor">
-        <form action="./studentRequestReturn.php">
-            Name: <br>
-            <input type="text" name="firstlast"><br>
-            Email: <br>
-            <input type="email" name="semail"><br>
+    <div>
+        <form method="POST" class="request-tutor" action="./studentRequestReturn.php">
             Day of the Week <br>
-            <select name="dayofweek">
-                <option value="" disabled selected hidden>Choose day...</option>
-                <option value="monday">Monday</option>
-                <option value="tuesday">Tuesday</option>
-                <option value="wednesday">Wednesday</option>
-                <option value="thursday">Thursday</option>
-                <option value="friday">Friday</option>
-                <option value="saturday">Saturday</option>
-                <option value="sunday">Sunday</option>
-            </select> <br>
+            <input type="date" name="date"/>
+            <br>
             Select a Time <br>
-            <select name="hour">
-                <option value="" disabled selected hidden> HR</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
+            <select name='catalog_1'>
+                <option value='' disabled selected hidden> Time</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="01:00">1:00</option>
+                <option value="01:30">1:30</option>
+                <option value="02:00">2:00</option>
+                <option value="02:30">2:30</option>
+                <option value="03:00">3:00</option>
+                <option value="03:30">3:30</option>
+                <option value="04:00">4:00</option>
+                <option value="04:30">4:30</option>
+                <option value="05:00">5:00</option>
+                <option value="05:30">5:30</option>
+                <option value="06:00">6:00</option>
+                <option value="06:30">6:30</option>
+                <option value="07:00">7:00</option>
+                <option value="07:30">7:30</option>
+                <option value="08:30">8:30</option>
+                <option value="09:00">9:00</option>
+                <option value="09:30">9:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
             </select>
-            <select name="minute">
-                <option value="" disabled selected hidden> MN</option>
-                <option>00</option>
-                <option>15</option>
-                <option>30</option>
-                <option>45</option>
-            </select>
-            <select name="ampm">
-                <option value="" disabled selected hidden> A/P</option>
-                <option>AM</option>
-                <option>PM</option>
+            <select name='am_pm'>
+                    <option value='' disabled selected hidden> A/P</option>
+                    <option value = "AM">AM</option>
+                    <option value = "PM">PM</option>
             </select> <br>
             Lab Section <br>
-            <select name="section">
+            <select name="var_section">
                 <option value="" disabled selected hidden> LS </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
+                <option value = "1">1</option>
+                <option value = "2">2</option>
+                <option value = "3">3</option>
+                <option value = "4">4</option>
+                <option value = "5">5</option>
+                <option value = "6">6</option>
             </select> <br>
             Preferred TA <br>
             <select name="prefTA">
                 <option value="" disabled selected hidden>Pick Favorite TA</option>
-                <option>Micheal Dodd</option>
-                <option>Micheal Dodd</option>
-                <option>Micheal Dodd</option>
-                <option>Micheal Dodd</option>
-                <option>Micheal Dodd</option>
+                
+                <?php
+                    $conn = mysqli_connect("localhost", "pmauser", "Achintya2", "ta_info");
+                    // Check connection
+                    if ($conn->connect_error) {
+                      die("Connection failed: " . $conn->connect_error);
+                    } else {
+                    }
+                    $sql  = "SELECT uidUsers FROM ta_users";
+                    $result = $conn->query($sql);
+                    $name_list = array();
+                    while($row = $result->fetch_array()[0]){
+                        $name_list[] = $row;
+                    }
+                    $option = '';
+                    for($h=0;$h < count($name_list); $h++){
+                        $option .='<option value="'.$name_list[$h].'">'.$name_list[$h].'</option>';
+                    }
+                    echo $option;
+                ?>
+                
             </select> <br>
             <br>
             <button name="submitrequest">

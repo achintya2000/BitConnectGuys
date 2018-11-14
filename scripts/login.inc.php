@@ -33,6 +33,7 @@ if (isset($_POST['login-submit'])) {
                     $_SESSION['userUid'] = $row['uidUsers'];
                     $_SESSION['userEmail'] = $row['emailUsers'];
                     $_SESSION['lSection'] = $row['labSection'];
+                    $_SESSION['string'] = $row['userAvail'];
 
                     header("Location: ../../../TAhome.php?login=success");
                     exit();

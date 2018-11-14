@@ -6,12 +6,7 @@ if (isset($_POST['signup-submit'])) {
     $password = $_POST['pwd'];
     $passwordRepeat = $_POST['pwd-repeat'];
     $labsection = $_POST['section'];
-    $time = strtotime($_POST['dateFrom']);
-
-    if (empty($time)) {
-        header("Location: ../../../TAlogin.php?error=emptydateTime=");
-        exit();
-    }
+    $defaultTime = "000000000000000000000000000000000000000000000000,000000000000000000000000000000000000000000000000,000000000000000000000000000000000000000000000000,000000000000000000000000000000000000000000000000,000000000000000000000000000000000000000000000000,000000000000000000000000000000000000000000000000,000000000000000000000000000000000000000000000000";
 
     if (empty($labsection)) {
         header("Location: ../../../TAlogin.php?error=emptylabsection=");
@@ -59,7 +54,7 @@ if (isset($_POST['signup-submit'])) {
                 exit();
             }
             else {
-                $sql = "INSERT INTO ta_users (uidUsers, emailUsers, pwdUsers, labSection) VALUES (?, ?, ?, ?)";
+                $sql = "INSERT INTO ta_users (uidUsers, emailUsers, pwdUsers, labSection, userAvail) VALUES (?, ?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn); 
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                     header("Location: ../../../TAlogin.php?error=sqlerror");
@@ -68,7 +63,7 @@ if (isset($_POST['signup-submit'])) {
                 else {
 
                     $hashedpwd = password_hash($password, PASSWORD_DEFAULT);
-                    mysqli_stmt_bind_param($stmt, "sssi", $username, $email, $hashedpwd, $labsection);
+                    mysqli_stmt_bind_param($stmt, "sssis", $username, $email, $hashedpwd, $labsection, $defaultTime);
                     mysqli_stmt_execute($stmt);
                     header("Location: ../../../TAlogin.php?signup=success");
                     exit();

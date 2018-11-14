@@ -6,3 +6,4 @@ $time = $_POST['dateFrom'];
 echo($labsection);
 echo "<br>";
 echo($time);
+echo "<br>";
