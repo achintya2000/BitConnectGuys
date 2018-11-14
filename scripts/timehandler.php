@@ -70,12 +70,13 @@ function sort_database($names, $emails, $dates, $sections, $pName, $pDOW, $pTime
             <br>");
 
     for($h=0;$h < count($names); $h++){
-        
-        $txt = sprintf("TA: %s  Score: %.1f",$names[$h],$scores[$h]);
-        echo $txt;
-        echo ("<input type='submit' name =".$names[$h].">");
-        echo '<br>';
-        
+        if($scores[$h] != 0)
+        {
+            $txt = sprintf("TA: %s  Score: %.1f",$names[$h],$scores[$h]);
+            echo $txt;
+            echo ("<input type='submit' name =".$names[$h].">");
+            echo '<br>';
+        }
     }
     echo '</form>';
     return $emails; 
