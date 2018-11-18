@@ -165,7 +165,7 @@
                     
                     $query  = "UPDATE ta_users SET userAvail='$var' WHERE idUsers=$id";
                     
-                    $result = $conn->query($query);
+                    $result = mysqli_query($conn, $query);
                     mysqli_close($conn);
                 }
                 if (isset($_POST["submit-DT"])){
@@ -180,11 +180,11 @@
                     
                     $query  = "UPDATE ta_users SET userAvail='$var' WHERE idUsers=$id";
                     
-                    $result = $conn->query($query);
+                    $result = mysqli_query($conn, $query);
                     mysqli_close($conn);
                 }
 
-                $string = $_SESSION['string'];
+                $string = $_SESSION['timestring'];
                 create_table($string);
 
             } else {
