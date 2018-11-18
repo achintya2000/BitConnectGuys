@@ -58,31 +58,31 @@
                 include("../html/scripts/timehandler.php");
                 include("../html/scripts/webhandler.inc.php");
 
-                $conn = mysqli_connect("localhost", "pmauser", "Achintya2", "ta_info");
+                $conn = mysqli_connect("us-cdbr-iron-east-01.cleardb.net", "b9b0bab205ee44", "4268dd78", "heroku_0671d1b843b6769");
                 // Check connection
                 if ($conn->connect_error) {
                   die("Connection failed: " . $conn->connect_error);
                 } else {
                 }
-                $sql  = "SELECT uidUsers FROM ta_users";
+                $sql  = "SELECT uidUsers FROM heroku_0671d1b843b6769";
                 $result = $conn->query($sql);
                 $name_list = array();
                 while($row = $result->fetch_array()[0]){
                     $name_list[] = $row;
                 }
-                $sql  = "SELECT emailUsers FROM ta_users";
+                $sql  = "SELECT emailUsers FROM heroku_0671d1b843b6769";
                 $result = $conn->query($sql);
                 $email_list = array();
                 while($row = $result->fetch_array()[0]){
                     $email_list[] = $row;
                 }
-                $sql  = "SELECT labSection FROM ta_users";
+                $sql  = "SELECT labSection FROM heroku_0671d1b843b6769";
                 $result = $conn->query($sql);
                 $section_list = array();
                 while($row = $result->fetch_array()){
                     $section_list[] = intval($row[0]);
                 }
-                $sql  = "SELECT userAvail FROM ta_users";
+                $sql  = "SELECT userAvail FROM heroku_0671d1b843b6769";
                 $result = $conn->query($sql);
                 $avail_list = array();
                 while($row = $result->fetch_array()){

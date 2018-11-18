@@ -85,13 +85,13 @@
                 <option value="" disabled selected hidden>Pick Favorite TA</option>
                 
                 <?php
-                    $conn = mysqli_connect("localhost", "pmauser", "Achintya2", "ta_info");
+                    $conn = mysqli_connect("us-cdbr-iron-east-01.cleardb.net", "b9b0bab205ee44", "4268dd78", "heroku_0671d1b843b6769");
                     // Check connection
                     if ($conn->connect_error) {
                       die("Connection failed: " . $conn->connect_error);
                     } else {
                     }
-                    $sql  = "SELECT uidUsers FROM ta_users";
+                    $sql  = "SELECT uidUsers FROM heroku_0671d1b843b6769";
                     $result = $conn->query($sql);
                     $name_list = array();
                     while($row = $result->fetch_array()[0]){

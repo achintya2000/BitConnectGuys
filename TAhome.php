@@ -143,7 +143,7 @@
             </html>      
                 <?php
                 include("../html/scripts/timehandler.php");
-                $conn = mysqli_connect("localhost", "pmauser", "Achintya2", "ta_info");
+                $conn = mysqli_connect("us-cdbr-iron-east-01.cleardb.net", "b9b0bab205ee44", "4268dd78", "heroku_0671d1b843b6769");
                 // Check connection
                 if ($conn->connect_error) {
                   die("Connection failed: " . $conn->connect_error);
@@ -163,7 +163,7 @@
                     $var = add_time($day, $sT, $am_pm1, $eT, $am_pm2, $string);
                     $_SESSION['string'] = $var;
                     
-                    $query  = "UPDATE ta_users SET userAvail='$var' WHERE idUsers=$id";
+                    $query  = "UPDATE heroku_0671d1b843b6769 SET userAvail='$var' WHERE idUsers=$id";
                     
                     $result = mysqli_query($conn, $query);
                     mysqli_close($conn);
@@ -178,7 +178,7 @@
                     $var = delete_time($day, $sT, $am_pm1, $eT, $am_pm2, $string);
                     $_SESSION['string'] = $var;
                     
-                    $query  = "UPDATE ta_users SET userAvail='$var' WHERE idUsers=$id";
+                    $query  = "UPDATE heroku_0671d1b843b6769 SET userAvail='$var' WHERE idUsers=$id";
                     
                     $result = mysqli_query($conn, $query);
                     mysqli_close($conn);
