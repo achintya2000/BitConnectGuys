@@ -64,25 +64,25 @@
                   die("Connection failed: " . $conn->connect_error);
                 } else {
                 }
-                $sql  = "SELECT uidUsers FROM heroku_0671d1b843b6769";
+                $sql  = "SELECT uidUsers FROM ta_users";
                 $result = $conn->query($sql);
                 $name_list = array();
                 while($row = $result->fetch_array()[0]){
                     $name_list[] = $row;
                 }
-                $sql  = "SELECT emailUsers FROM heroku_0671d1b843b6769";
+                $sql  = "SELECT emailUsers FROM ta_users";
                 $result = $conn->query($sql);
                 $email_list = array();
                 while($row = $result->fetch_array()[0]){
                     $email_list[] = $row;
                 }
-                $sql  = "SELECT labSection FROM heroku_0671d1b843b6769";
+                $sql  = "SELECT labSection FROM ta_users";
                 $result = $conn->query($sql);
                 $section_list = array();
                 while($row = $result->fetch_array()){
                     $section_list[] = intval($row[0]);
                 }
-                $sql  = "SELECT userAvail FROM heroku_0671d1b843b6769";
+                $sql  = "SELECT userAvail FROM ta_users";
                 $result = $conn->query($sql);
                 $avail_list = array();
                 while($row = $result->fetch_array()){

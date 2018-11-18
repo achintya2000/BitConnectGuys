@@ -163,7 +163,7 @@
                     $var = add_time($day, $sT, $am_pm1, $eT, $am_pm2, $string);
                     $_SESSION['string'] = $var;
                     
-                    $query  = "UPDATE heroku_0671d1b843b6769 SET userAvail='$var' WHERE idUsers=$id";
+                    $query  = "UPDATE ta_users SET userAvail='$var' WHERE idUsers=$id";
                     
                     $result = mysqli_query($conn, $query);
                     mysqli_close($conn);
@@ -178,7 +178,7 @@
                     $var = delete_time($day, $sT, $am_pm1, $eT, $am_pm2, $string);
                     $_SESSION['string'] = $var;
                     
-                    $query  = "UPDATE heroku_0671d1b843b6769 SET userAvail='$var' WHERE idUsers=$id";
+                    $query  = "UPDATE ta_users SET userAvail='$var' WHERE idUsers=$id";
                     
                     $result = mysqli_query($conn, $query);
                     mysqli_close($conn);
