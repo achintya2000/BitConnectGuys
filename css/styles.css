@@ -175,9 +175,19 @@ header .highlight,
     
 }
 
+
 /* Students Return Table */
 
 #returntable {
     color: #FFFFFF;
     margin: 10% 10%;
+}
+
+.form2 {
+    position: relative;
+    z-index: 1;
+    max-width: 560px;
+    margin: 6% auto 100px;
+    text-align: center;
+    padding: 45px;
 }

@@ -17,7 +17,7 @@
         <div class="container">
             <div>
                 <h1>
-                    Tutor <span class="highlight"> Tinder</span>
+                Duke <span class="highlight"> Tutor</span>
                 </h1>
             </div>
             <nav>
@@ -34,13 +34,14 @@
     </header>
 
     <div>
-        <form method="POST" class="request-tutor" action="./studentRequestReturn.php">
+        <form method="POST" class="form" action="./studentRequestReturn.php" style="margin-top: 5%">
             Day of the Week <br>
             <input type="date" name="date"/>
             <br>
             Select a Time <br>
-            <select name='catalog_1'>
-                <option value='' disabled selected hidden> Time</option>
+
+            <select id="select-box" name='catalog_1'>
+                <option value='' disabled selected hidden> Select Time</option>
                 <option value="12:00">12:00</option>
                 <option value="12:30">12:30</option>
                 <option value="01:00">1:00</option>
@@ -57,6 +58,7 @@
                 <option value="06:30">6:30</option>
                 <option value="07:00">7:00</option>
                 <option value="07:30">7:30</option>
+                <option value="08:00">8:00</option>
                 <option value="08:30">8:30</option>
                 <option value="09:00">9:00</option>
                 <option value="09:30">9:30</option>
@@ -85,12 +87,8 @@
                 <option value="" disabled selected hidden>Pick Favorite TA</option>
                 
                 <?php
-                    $conn = mysqli_connect("us-cdbr-iron-east-01.cleardb.net", "b9b0bab205ee44", "4268dd78", "heroku_0671d1b843b6769");
-                    // Check connection
-                    if ($conn->connect_error) {
-                      die("Connection failed: " . $conn->connect_error);
-                    } else {
-                    }
+                    require("scripts/dbh.inc.php");
+
                     $sql  = "SELECT uidUsers FROM ta_users";
                     $result = $conn->query($sql);
                     $name_list = array();
@@ -102,6 +100,7 @@
                         $option .='<option value="'.$name_list[$h].'">'.$name_list[$h].'</option>';
                     }
                     echo $option;
+                    mysqli_close($conn);
                 ?>
                 
             </select> <br>

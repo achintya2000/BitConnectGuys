@@ -17,7 +17,7 @@
         <div class="container">
             <div>
                 <h1>
-                    Tutor <span class="highlight"> Tinder</span>
+                Duke <span class="highlight"> Tutor</span>
                 </h1>
             </div>
             <nav>

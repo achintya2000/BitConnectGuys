@@ -3,7 +3,6 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +16,7 @@
         <div class="container">
             <div>
                 <h1>
-                    Tutor <span class="highlight"> Tinder</span>
+                Duke <span class="highlight"> Tutor</span>
                 </h1>
             </div>
             <nav>
@@ -63,13 +62,13 @@
                 <form method = "POST" action="TAhome.php">
                     <select name='dayofweek'>
                         <option value='' disabled selected hidden>Choose day...</option>
+                        <option value='0'>Sunday</option>
                         <option value='1'>Monday</option>
                         <option value='2'>Tuesday</option>
                         <option value='3'>Wednesday</option>
                         <option value='4'>Thursday</option>
                         <option value='5'>Friday</option>
                         <option value='6'>Saturday</option>
-                        <option value='0'>Sunday</option>
                     </select>
                     <select name='time_catalog_1'>
                         <option value='' disabled selected hidden> HR</option>
@@ -142,13 +141,8 @@
                     </form>
             </html>      
                 <?php
-                include("../html/scripts/timehandler.php");
-                $conn = mysqli_connect("us-cdbr-iron-east-01.cleardb.net", "b9b0bab205ee44", "4268dd78", "heroku_0671d1b843b6769");
-                // Check connection
-                if ($conn->connect_error) {
-                  die("Connection failed: " . $conn->connect_error);
-                }else {
-                }
+                include "scripts/timehandler.php";
+                require "scripts/dbh.inc.php";
 
                 $id = $_SESSION['userID'];
                 $string = $_SESSION['string'];
@@ -184,7 +178,7 @@
                     mysqli_close($conn);
                 }
 
-                $string = $_SESSION['timestring'];
+                $string = $_SESSION['string'];
                 create_table($string);
 
             } else {

@@ -17,7 +17,7 @@
         <div class="container">
             <div>
                 <h1>
-                    Tutor <span class="highlight"> Tinder</span>
+                Duke <span class="highlight"> Tutor</span>
                 </h1>
             </div>
             <nav>
@@ -33,7 +33,7 @@
         </div>
     </header>
 
-    <div id="returntable">
+    <div class="form2">
         <?php
             $date = date('d,m,Y',strtotime($_POST['date']));
             $split = explode(",", $date);
@@ -46,24 +46,23 @@
             $pName = $_POST['prefTA'];
             $pAMPM = $_POST['am_pm'];
             $dow = jddayofweek($jd, 0);
+        
             
             $expiry_date = $_POST['date'];
             $today = time();
             $interval = strtotime($expiry_date) - $today;
             $days = floor($interval / 86400); // 1 day
+            
             if($days > 7) {
                 echo "ERROR: MUST BE WITHIN NEXT 7 DAYS";
 
             } else {
-                include("../html/scripts/timehandler.php");
-                include("../html/scripts/webhandler.inc.php");
 
-                $conn = mysqli_connect("us-cdbr-iron-east-01.cleardb.net", "b9b0bab205ee44", "4268dd78", "heroku_0671d1b843b6769");
-                // Check connection
-                if ($conn->connect_error) {
-                  die("Connection failed: " . $conn->connect_error);
-                } else {
-                }
+                include "scripts/timehandler.php";
+                include "scripts/webhandler.inc.php";
+                require "scripts/dbh.inc.php";
+
+
                 $sql  = "SELECT uidUsers FROM ta_users";
                 $result = $conn->query($sql);
                 $name_list = array();
@@ -99,6 +98,7 @@
                 }
 
             }
+            mysqli_close($conn);
         ?>
     </div>
 
