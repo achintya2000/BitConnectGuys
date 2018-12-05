@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $_SESSION['dow'] = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +35,7 @@
     </header>
 
     <div>
-        <form method="POST" class="form" action="./studentRequestReturn.php" style="margin-top: 5%">
+        <form method="POST" class="form" action="./bridge.php" style="margin-top: 5%">
             Day of the Week <br>
             <input type="date" name="date"/>
             <br>

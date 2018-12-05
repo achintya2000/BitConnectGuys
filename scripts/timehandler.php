@@ -23,10 +23,6 @@ function sort_database($names, $emails, $dates, $sections, $pName, $pDOW, $pTime
 {   
     $scores = array();
     $names2 = $names;
-    #$names = array('thomas', 'ben', 'harry');
-    #$dates = array("","","");
-    #$times = array("","","");
-    #$sections = array('4','5','6'); 
 
     for($x=0;$x < 8;$x++){
         $score = 0;
@@ -36,14 +32,13 @@ function sort_database($names, $emails, $dates, $sections, $pName, $pDOW, $pTime
         if($sections[$x]==$pSection){
             $score+=1.1;
         }
-        if(string_to_array($dates[$x])[$pDOW][time_to_index($pTime,$pAMPM)]){
+        if(string_to_array($dates[$x])[$pDOW][time_to_index($pTime,$pAMPM)]==1){
             $score += 1.4;
-        } else if (!string_to_array($dates[$x])[$pDOW][time_to_index($pTime,$pAMPM)]){
+        } else {
             $score = 0;
         }
         array_push($scores, $score);
     }
-    //print_array($scores);
     for($j=0;$j < count($scores); $j++){
         for($k = 0; $k < count($scores)-$j-1; $k++){
             if($scores[$k]<$scores[$k+1]){
@@ -80,7 +75,6 @@ function sort_database($names, $emails, $dates, $sections, $pName, $pDOW, $pTime
     }
     echo '</form>';
     return $emails; 
-    #print_array($emails);
 }
 function print_array($ranking)
 {
@@ -102,12 +96,21 @@ function add_time($day, $startingTime, $amOrPm1, $endingTime,  $amOrPm2, $string
     }
     return array_to_string($array);
 }
+function book_session($day, $startingTime, $amOrPm, $string_of_times)
+{
+    $array = string_to_array($string_of_times);
+    if(($array[$day])[time_to_index($startingTime,$amOrPm)] ==1)
+    {
+        ($array[$day])[time_to_index($startingTime,$amOrPm)] = "*";
+    }
+    return array_to_string($array);
+}
 function delete_time($day, $startingTime, $amOrPM1, $endingTime,  $amOrPM2,$string_of_times)
 {
     $array = string_to_array($string_of_times);
     for($h=time_to_index($startingTime, $amOrPM1);$h < time_to_index($endingTime, $amOrPM2); $h++)
     {
-        if(($array[$day])[$h] == 0)
+        if(($array[$day])[$h] != 1)
         {
             trigger_error("This time slot does not exist to be deleted.", E_USER_ERROR);
         }
@@ -159,29 +162,95 @@ function index_to_time($index)
     $txt = sprintf("%.0f:%s %s",round($hour), $minute, $amOrPm);
     return $txt;
 }
-function find_ta_schedule($str)
+function find_ta_schedule($str, $astr)
 {
     for($h=0;$h < strlen($str); $h++){
-        if($h==0 && $str[$h]=="1")
+        if($h==0 && $str[$h]!="0")
         {
             echo "12:00 AM";
         }
-        if($h>0 && $str[$h-1]=="0" && $str[$h]!="0")
+        if($h>0 && $h !=47 && $str[$h-1]=="0" && $str[$h]!="0" )
         {
             echo index_to_time($h);
-        }
-        if($h!=47 && $str[$h]=="1" && $str[$h+1]!="1" )
+            
+            //echo index_to_time($h);
+        }else if($h>0 && $h !=47 && $str[$h-1]=="0" && $str[$h]!="0")
         {
+            
+        }
+        if($h!=47 && $str[$h]!="0" && $str[$h+1]=="0" )
+        {
+            
             echo sprintf("-%s",index_to_time($h+1));
+            
+            //echo sprintf("-%s",index_to_time($h+1));
             echo "<br>";
+
         }
-        if($h==47 && $str[$h-1]=="1" && $str[$h]=="1")
+        if($h==47 && $str[$h-1]=="0" && $str[$h]!="0")
         {
+            
+            echo "11:30 PM-12:00 PM";
+            
+            echo "<br>";
+        }else if($h==47 && $str[$h-1]!="0" && $str[$h]!="0")
+        {
+            
             echo "-12:00 PM";
+            
             echo "<br>";
         }
-        
+
+
+
+        if($h==0 && $astr[$h]!="0")
+        {
+            echo "<font color='#E46A6b'>12:00 AM</font>";
+        }
+        if($h>0 && $h !=47 && $astr[$h-1]=="0" && $astr[$h]!="0" )
+        {
+            echo "<font color='#E46A6b'>".index_to_time($h)."</font>";
+            
+            //echo index_to_time($h);
+        }
+        if($h!=47 && $astr[$h]!="0" && $astr[$h+1]=="0" )
+        {
+            
+            echo "<font color='#E46A6b'>".sprintf("-%s",index_to_time($h+1))."</font>";            
+            //echo sprintf("-%s",index_to_time($h+1));
+            echo "<br>";
+
+        }
+        if($h==47 && $astr[$h-1]!="0" && $astr[$h]!="0")
+        {
+            
+            echo "-12:00 PM";
+            
+            echo "<br>";
+        }
     }
+}
+function string_to_zeroString($string)
+{
+    for($h=0;$h < strlen($string); $h++)
+    {
+        if($string[$h]=="*")   
+        {
+            $string[$h]= "0";
+        }           
+    }
+    return $string;
+}
+function string_to_asteriskString($string)
+{
+    for($h=0;$h < strlen($string); $h++)
+    {
+        if($string[$h]=="1")   
+        {
+            $string[$h]= "0";
+        }           
+    }
+    return $string;
 }
 function string_to_array($string)
 {
@@ -233,6 +302,6 @@ function create_table($string)
             echo "<br>Saturday: <br>";
             break;
             }
-        find_ta_schedule($array[$h]);         
+        find_ta_schedule(string_to_zeroString($array[$h]), string_to_asteriskString($array[$h]));         
     }
 }

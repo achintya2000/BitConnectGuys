@@ -38,7 +38,7 @@
           ?>
             <html>
             <h1 style='padding-top:30px'>
-                You are logged in. <a href='/TAEditProfile.php'>Edit Profile </a>
+                You are logged in.
                     </h1>
             <h1 style='padding-top:5px'>
                 Teaching Assitant Username         

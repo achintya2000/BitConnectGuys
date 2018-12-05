@@ -10,8 +10,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Matching tutors and students at Duke's EGR 103">
     <meta name="keywords" content="EGR 103 Tutor, Tutor Tinder, Duke Tutor Tinder, Duke EGR 103">
-    <title>Tutor Tinder | Welcome!</title>
+    <title>Duke Tutor | Welcome!</title>
     <link rel="stylesheet" href="./css/styles.css">
+    
+    <?php
+        
+    ?>
+    
 </head>
 
 <body>

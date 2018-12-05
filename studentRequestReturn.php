@@ -46,7 +46,6 @@
             $pName = $_POST['prefTA'];
             $pAMPM = $_POST['am_pm'];
             $dow = jddayofweek($jd, 0);
-        
             
             $expiry_date = $_POST['date'];
             $today = time();
@@ -88,12 +87,16 @@
                     $avail_list[] = $row[0];
                 }
                 $emails =  sort_database($name_list, $email_list, $avail_list, $section_list , $pName, $dow, $time, $pAMPM, $section);
-
                 for($h = 0; $h <count($name_list);$h++)
                 {
                     if(isset($_POST[$name_list[$h]]) && isset($_POST['firstlast']) && isset($_POST['sEmail'])){
 
-                        send_emails($_POST['sEmail'], $email_list[$h]);
+                        send_emails($_POST['sEmail'], $email_list[$h]); 
+                        $var = book_session($_SESSION['dow'], $_SESSION['time'], $_SESSION['AMorPM'],$_SESSION['string']);
+                                            
+                        $query  = "UPDATE ta_users SET userAvail='$var' WHERE emailUsers='$email_list[$h]'";
+                    
+                        $result = mysqli_query($conn, $query);
                     }
                 }
 
