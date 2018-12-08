@@ -43,17 +43,17 @@
             </p>
             <br>
             <h1>
-                From having to travel from East to West campus, to modifying schedules to fit in office hours, the process of acquiring tutoring can be inconvenient. Duke Tutor enables students to find help from any place on campus. Whether a student has a small question about a line of code or a complex conceptual question, Duke Tutor provides a more efficient process of acquiring help. 
+                 Why use Duke Tutor?
             </h1>
             <p style="font-size: 17px">
-                I don't know
+                From having to travel from East to West campus, to modifying schedules to fit in office hours, the process of acquiring tutoring can be inconvenient. Duke Tutor enables students to find help from any place on campus. Whether a student has a small question about a line of code or a complex conceptual question, Duke Tutor provides a more efficient process of acquiring help.
             </p>
             <br>
             <h1>
-                Who Created Duke Tutor?
+                Who Created DukeTutor?
             </h1>
             <p style="font-size: 17px">
-                Duke Univeristy EGR 101 Section 6 Group 9
+                Duke Univeristy EGR 101 Section 6 Group 9 (Thomas Chemmanoor, Micheal Dodd, Achintya Kumar, Benjamin Lu, Harry Xu)
             </p>
         </div>
     </section>
